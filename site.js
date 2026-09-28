@@ -1,0 +1,1 @@
+const menu=document.querySelector('.menu'),links=document.querySelector('.links');if(menu)menu.onclick=()=>links.classList.toggle('open');const here=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('.links a').forEach(a=>{if(a.getAttribute('href')===here)a.classList.add('active')});

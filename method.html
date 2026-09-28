@@ -1,0 +1,10 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>번호는 어떻게 뽑나요? · Bayes Lotto Lab</title><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
+<section class="article-hero"><p class="eyebrow">HOW IT WORKS</p><h1>번호는 어떻게 뽑나요?</h1><p>Bayes Lotto Lab v2의 번호 생성 과정을 순서대로 살펴봅니다.</p></section>
+<article class="article panel"><div class="steps">
+<div><b>01</b><h3>과거 결과 집계</h3><p>1~45 각각이 과거 회차에서 얼마나 등장했는지 계산합니다.</p></div>
+<div><b>02</b><h3>Posterior 업데이트</h3><p>Prior와 관측 데이터를 합쳐 각 번호의 Beta posterior를 계산합니다.</p></div>
+<div><b>03</b><h3>Posterior sampling</h3><p>추천 요청이 들어올 때마다 각 분포에서 새로운 값을 뽑습니다. 그래서 같은 설정에서도 결과가 달라집니다.</p></div>
+<div><b>04</b><h3>중복 없이 6개 선택</h3><p>샘플링된 상대 점수를 가중치로 사용해 1~45에서 중복 없이 여섯 번호를 고릅니다.</p></div>
+<div><b>05</b><h3>게임 간 다양화</h3><p>5게임을 만들 때 앞선 게임에서 많이 쓴 번호의 가중치를 낮춰 한 사용자의 조합이 지나치게 비슷해지지 않게 합니다.</p></div>
+<div><b>06</b><h3>선택 패턴 완화</h3><p>옵션을 켜면 1~31에만 몰리거나 지나치게 단순한 연속 패턴을 완화합니다. 이는 당첨 확률을 높이는 기능이 아니라 흔한 인간 선택과의 중복을 줄이려는 휴리스틱입니다.</p></div></div>
+<h2>안정형 · 균형형 · 탐색형</h2><p><b>안정형</b>은 posterior 차이를 더 강하게 반영하고, <b>탐색형</b>은 선택 분포를 더 평평하게 만들어 다양한 번호가 나올 여지를 키웁니다. 균형형은 그 중간입니다.</p></article><section class="notice"><b>중요 안내</b><p>정상적인 독립 무작위 추첨에서는 과거 결과가 다음 회차의 특정 번호나 조합을 더 유리하게 만들지 않습니다. 여기서 설명하는 Bayesian 분석은 과거 데이터의 패턴과 불확실성을 살펴보는 통계 실험입니다.</p></section></main><footer><div class="wrap">Bayes Lotto Lab · 통계 교육/실험용 · 복권 판매 또는 구매 대행 서비스가 아닙니다.</div></footer><script src="site.js"></script></body></html>
