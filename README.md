@@ -20,3 +20,8 @@ v2 추첨기를 메인으로 유지하면서 설명형 콘텐츠 사이트 구�
 - Added crawlable Korean SEO copy and internal links
 - Added 404 noindex page
 - After deployment, submit sitemap.xml in Google Search Console.
+
+
+## v4.1
+- JSON-LD structured data fixed to strict valid JSON (double quotes).
+- Canonical domain remains bayes-lotto-lab.bayeslotto.workers.dev.
