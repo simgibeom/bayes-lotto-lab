@@ -1,5 +1,16 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>백테스트 · Bayes Lotto Lab</title><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
-<section class="article-hero"><p class="eyebrow">BACKTEST</p><h1>정말 랜덤보다 잘 맞나요?</h1><p>좋아 보이는 모델도 미래 데이터를 미리 본 채 평가하면 의미가 없습니다. 그래서 시간 순서를 지키는 검증이 필요합니다.</p></section>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>로또 번호 추천 백테스트 · 랜덤과 비교 | Bayes Lotto Lab</title>
+<meta name="description" content="과거 시점의 정보만 사용하는 walk-forward 방식으로 로또 번호 추천 모델을 검증하고 무작위 기준과 비교하는 방법을 설명합니다.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://bayes-lotto-lab.rlaqja098.workers.dev/backtest.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Bayes Lotto Lab">
+<meta property="og:title" content="로또 번호 추천 백테스트 · 랜덤과 비교 | Bayes Lotto Lab">
+<meta property="og:description" content="과거 시점의 정보만 사용하는 walk-forward 방식으로 로또 번호 추천 모델을 검증하고 무작위 기준과 비교하는 방법을 설명합니다.">
+<meta property="og:url" content="https://bayes-lotto-lab.rlaqja098.workers.dev/backtest.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'로또 번호 추천 백테스트 · 랜덤과 비교 | Bayes Lotto Lab',"description":'과거 시점의 정보만 사용하는 walk-forward 방식으로 로또 번호 추천 모델을 검증하고 무작위 기준과 비교하는 방법을 설명합니다.',"url":"https://bayes-lotto-lab.rlaqja098.workers.dev/backtest.html","isPartOf":{"@type":"WebSite","name":"Bayes Lotto Lab","url":"https://bayes-lotto-lab.rlaqja098.workers.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
+<section class="article-hero"><p class="eyebrow">BACKTEST</p><h1>로또 번호 추천은 랜덤보다 잘 맞을까요?</h1><p>좋아 보이는 모델도 미래 데이터를 미리 본 채 평가하면 의미가 없습니다. 그래서 시간 순서를 지키는 검증이 필요합니다.</p></section>
 <article class="article panel"><h2>Walk-forward 방식</h2><div class="flow"><span>1~500회로 학습</span><i>→</i><span>501회 검사</span><i>→</i><span>1~501회로 학습</span><i>→</i><span>502회 검사</span></div>
 <p>이 과정을 반복해 모델이 다음 회차에서 평균 몇 개를 맞혔는지 확인합니다. 6개 번호를 무작위로 고를 때 한 회차에서 맞는 번호의 기대 개수는 6×6/45 = <b>0.8개</b>입니다.</p>
 <div class="callout">백테스트에서 0.8을 조금 넘었다고 곧바로 예측력이 있다고 결론 내릴 수 없습니다. 변동 범위와 표본 수, 모델을 고르는 과정에서 생기는 과적합까지 함께 봐야 합니다.</div>

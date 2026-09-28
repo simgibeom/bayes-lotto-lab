@@ -1,5 +1,16 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>왜 Bayesian인가요? · Bayes Lotto Lab</title><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
-<section class="article-hero"><p class="eyebrow">WHY BAYES?</p><h1>왜 Bayesian인가요?</h1><p>“많이 나온 번호 6개”를 그대로 보여주는 것보다 불확실성을 함께 다루기 위해서입니다.</p></section>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>로또 번호 분석에 Bayesian을 사용하는 이유 | Bayes Lotto Lab</title>
+<meta name="description" content="단순 출현 빈도 대신 불확실성을 함께 다루는 Bayesian 로또 번호 분석의 아이디어와 한계를 설명합니다.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://bayes-lotto-lab.rlaqja098.workers.dev/why.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Bayes Lotto Lab">
+<meta property="og:title" content="로또 번호 분석에 Bayesian을 사용하는 이유 | Bayes Lotto Lab">
+<meta property="og:description" content="단순 출현 빈도 대신 불확실성을 함께 다루는 Bayesian 로또 번호 분석의 아이디어와 한계를 설명합니다.">
+<meta property="og:url" content="https://bayes-lotto-lab.rlaqja098.workers.dev/why.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'로또 번호 분석에 Bayesian을 사용하는 이유 | Bayes Lotto Lab',"description":'단순 출현 빈도 대신 불확실성을 함께 다루는 Bayesian 로또 번호 분석의 아이디어와 한계를 설명합니다.',"url":"https://bayes-lotto-lab.rlaqja098.workers.dev/why.html","isPartOf":{"@type":"WebSite","name":"Bayes Lotto Lab","url":"https://bayes-lotto-lab.rlaqja098.workers.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
+<section class="article-hero"><p class="eyebrow">WHY BAYES?</p><h1>왜 로또 번호 분석에 Bayesian을 사용할까요?</h1><p>“많이 나온 번호 6개”를 그대로 보여주는 것보다 불확실성을 함께 다루기 위해서입니다.</p></section>
 <article class="article panel"><h2>1. 작은 차이를 너무 확신하지 않기</h2><p>번호 A가 B보다 몇 번 더 나왔다고 해서 A가 본질적으로 더 유리하다고 단정할 근거는 부족합니다. Prior는 작은 표본에서 생기는 과도한 차이를 완화합니다.</p>
 <h2>2. 점 하나가 아니라 분포로 보기</h2><p>Bayesian 모델은 각 번호에 “13.7%” 같은 하나의 값만 붙이는 대신, 그 값이 얼마나 불확실한지도 표현할 수 있습니다.</p>
 <h2>3. 그래서 사용자마다 다른 조합을 만들 수 있습니다</h2><p>Posterior 평균 상위 6개를 모든 사람에게 고정 제공하지 않습니다. 각 요청마다 posterior에서 다시 샘플링하고 그 결과를 이용해 번호를 선택합니다.</p>

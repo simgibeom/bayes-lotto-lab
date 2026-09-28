@@ -1,5 +1,16 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>번호는 어떻게 뽑나요? · Bayes Lotto Lab</title><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
-<section class="article-hero"><p class="eyebrow">HOW IT WORKS</p><h1>번호는 어떻게 뽑나요?</h1><p>Bayes Lotto Lab v2의 번호 생성 과정을 순서대로 살펴봅니다.</p></section>
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>로또 번호 생성기 원리 · Bayesian 추천 방식 | Bayes Lotto Lab</title>
+<meta name="description" content="Bayes Lotto Lab이 과거 로또 데이터, Beta-Binomial posterior, 확률적 샘플링을 이용해 추천 조합을 만드는 과정을 설명합니다.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://bayes-lotto-lab.rlaqja098.workers.dev/method.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="Bayes Lotto Lab">
+<meta property="og:title" content="로또 번호 생성기 원리 · Bayesian 추천 방식 | Bayes Lotto Lab">
+<meta property="og:description" content="Bayes Lotto Lab이 과거 로또 데이터, Beta-Binomial posterior, 확률적 샘플링을 이용해 추천 조합을 만드는 과정을 설명합니다.">
+<meta property="og:url" content="https://bayes-lotto-lab.rlaqja098.workers.dev/method.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'로또 번호 생성기 원리 · Bayesian 추천 방식 | Bayes Lotto Lab',"description":'Bayes Lotto Lab이 과거 로또 데이터, Beta-Binomial posterior, 확률적 샘플링을 이용해 추천 조합을 만드는 과정을 설명합니다.',"url":"https://bayes-lotto-lab.rlaqja098.workers.dev/method.html","isPartOf":{"@type":"WebSite","name":"Bayes Lotto Lab","url":"https://bayes-lotto-lab.rlaqja098.workers.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
+<section class="article-hero"><p class="eyebrow">HOW IT WORKS</p><h1>통계 기반 로또 번호 생성기는 어떻게 뽑을까요?</h1><p>Bayes Lotto Lab v2의 번호 생성 과정을 순서대로 살펴봅니다.</p></section>
 <article class="article panel"><div class="steps">
 <div><b>01</b><h3>과거 결과 집계</h3><p>1~45 각각이 과거 회차에서 얼마나 등장했는지 계산합니다.</p></div>
 <div><b>02</b><h3>Posterior 업데이트</h3><p>Prior와 관측 데이터를 합쳐 각 번호의 Beta posterior를 계산합니다.</p></div>
