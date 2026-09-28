@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/bayes.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/bayes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/why.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/why.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/method.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/method.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/backtest.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/backtest.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/faq.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/faq.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bayes-lotto-lab.rlaqja098.workers.dev/updates.html</loc>
+    <loc>https://bayes-lotto-lab.bayeslotto.workers.dev/updates.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

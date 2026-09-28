@@ -14,7 +14,7 @@ v2 추첨기를 메인으로 유지하면서 설명형 콘텐츠 사이트 구�
 
 
 ## v4 SEO
-- Canonical base: https://bayes-lotto-lab.rlaqja098.workers.dev/
+- Canonical base: https://bayes-lotto-lab.bayeslotto.workers.dev/
 - Added unique title/description/canonical/OG metadata and WebPage structured data
 - Added robots.txt and sitemap.xml
 - Added crawlable Korean SEO copy and internal links

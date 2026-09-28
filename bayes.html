@@ -1,15 +1,15 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>로또 번호 통계와 베이지안 분석 쉽게 이해하기 | Bayes Lotto Lab</title>
 <meta name="description" content="로또 6/45 데이터를 예로 들어 사전분포, 데이터, 사후분포 등 Bayesian 통계의 핵심 개념을 쉽게 설명합니다.">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://bayes-lotto-lab.rlaqja098.workers.dev/bayes.html">
+<link rel="canonical" href="https://bayes-lotto-lab.bayeslotto.workers.dev/bayes.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="Bayes Lotto Lab">
 <meta property="og:title" content="로또 번호 통계와 베이지안 분석 쉽게 이해하기 | Bayes Lotto Lab">
 <meta property="og:description" content="로또 6/45 데이터를 예로 들어 사전분포, 데이터, 사후분포 등 Bayesian 통계의 핵심 개념을 쉽게 설명합니다.">
-<meta property="og:url" content="https://bayes-lotto-lab.rlaqja098.workers.dev/bayes.html">
+<meta property="og:url" content="https://bayes-lotto-lab.bayeslotto.workers.dev/bayes.html">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'로또 번호 통계와 베이지안 분석 쉽게 이해하기 | Bayes Lotto Lab',"description":'로또 6/45 데이터를 예로 들어 사전분포, 데이터, 사후분포 등 Bayesian 통계의 핵심 개념을 쉽게 설명합니다.',"url":"https://bayes-lotto-lab.rlaqja098.workers.dev/bayes.html","isPartOf":{"@type":"WebSite","name":"Bayes Lotto Lab","url":"https://bayes-lotto-lab.rlaqja098.workers.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":'로또 번호 통계와 베이지안 분석 쉽게 이해하기 | Bayes Lotto Lab',"description":'로또 6/45 데이터를 예로 들어 사전분포, 데이터, 사후분포 등 Bayesian 통계의 핵심 개념을 쉽게 설명합니다.',"url":"https://bayes-lotto-lab.bayeslotto.workers.dev/bayes.html","isPartOf":{"@type":"WebSite","name":"Bayes Lotto Lab","url":"https://bayes-lotto-lab.bayeslotto.workers.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><header><div class="wrap nav"><a class="brand" href="index.html"><b>Bayes Lotto Lab</b><span>6/45 통계 실험실</span></a><nav class="links"><a href="index.html">추첨</a><a href="bayes.html">베이지안 입문</a><a href="why.html">왜 Bayesian?</a><a href="method.html">추첨 원리</a><a href="backtest.html">백테스트</a><a href="faq.html">FAQ</a><a href="updates.html">업데이트</a></nav><button class="menu" aria-label="메뉴">☰</button></div></header><main class="wrap content">
 <section class="article-hero"><p class="eyebrow">BAYESIAN 101</p><h1>로또 번호 통계로 이해하는 베이지안 분석</h1><p>어려운 수식보다 먼저, “새로운 정보를 볼 때마다 생각을 조금씩 업데이트하는 방법”이라고 이해하면 충분합니다.</p></section>
 <article class="article panel">
 <h2>예를 들어 7번이 유난히 많이 나왔다면?</h2><p>단순 출현 빈도만 보면 “7번이 많이 나왔으니 특별한 번호 아닐까?”라고 생각하기 쉽습니다. 하지만 우연히 그렇게 보였을 가능성도 있습니다.</p>

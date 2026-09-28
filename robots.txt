@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bayes-lotto-lab.rlaqja098.workers.dev/sitemap.xml
+Sitemap: https://bayes-lotto-lab.bayeslotto.workers.dev/sitemap.xml
