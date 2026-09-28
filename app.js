@@ -66,7 +66,7 @@ function renderGames(){
  let games=[];
  for(let i=0;i<gameCount;i++)games.push(generateGame(games));
  $('#games').innerHTML=games.map((g,i)=>`<div class="game"><div class="game-name">GAME ${i+1}</div><div class="balls">${g.map(n=>`<div class="ball ${cls(n)}">${n}</div>`).join('')}</div></div>`).join('')+
- `<div class="why">각 게임은 같은 고정 순위가 아니라 Beta posterior에서 독립적으로 샘플링됩니다.</div>`;
+ `<div class="why">각 게임은 고정된 상위 번호를 그대로 쓰지 않고, 분석 결과에서 매번 다시 뽑아 서로 다른 조합을 만듭니다. (전문용어: Beta posterior sampling)</div>`;
 }
 function renderRank(){
  let s=stats().sort((a,b)=>b.mean-a.mean),max=s[0].mean;

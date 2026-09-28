@@ -22,19 +22,21 @@
 <section class="hero">
   <p class="eyebrow">BAYESIAN LOTTO ANALYTICS</p>
   <h1>로또 번호 추천 · 통계 기반 로또 번호 생성기</h1>
-  <p>과거 로또 6/45 데이터를 Beta-Binomial posterior와 최근 회차 가중치로 분석해 매번 새로운 추천 조합을 생성합니다. 통계적 실험 도구이며 특정 번호의 실제 당첨확률이 더 높다는 의미는 아닙니다.</p>
+  <p>과거 로또 6/45 데이터를 통계적으로 정리해 매번 새로운 추천 조합을 생성합니다. 어려운 통계 용어는 쉬운 설명과 함께 표시합니다. 특정 번호의 실제 당첨확률이 더 높다는 의미는 아닙니다.</p>
   <div class="ad">광고 영역 · AdSense 승인 후 코드 삽입</div>
 </section>
 
+<section class="panel quick-guide"><small>처음 오셨나요?</small><h2>이 사이트는 이렇게 번호를 만듭니다</h2><p>과거 당첨번호에서 보이는 출현 패턴을 베이지안 통계로 정리한 뒤, 분석 결과를 바탕으로 매번 새 조합을 뽑습니다. <b>과거에 자주 나온 번호가 다음에도 더 잘 나온다는 뜻은 아닙니다.</b></p><div class="plain-flow"><span>① 과거 데이터 확인</span><i>→</i><span>② 통계 점수 업데이트</span><i>→</i><span>③ 매번 새 조합 생성</span></div><p class="sub">전문적으로는 Prior(사전 가정) → Posterior(데이터 반영 후 결과) → Posterior sampling(결과에서 다시 뽑기) 과정입니다. <a href="bayes.html">베이지안 통계 쉽게 보기 →</a></p></section>
+
 <section class="panel">
- <div class="panel-head"><div><small>POSTERIOR SAMPLING</small><h2>Bayesian 추천 번호</h2></div>
+ <div class="panel-head"><div><small>통계 기반 무작위 생성 · POSTERIOR SAMPLING</small><h2>통계 기반 추천 번호</h2><p class="sub">분석 점수를 그대로 순위 매기지 않고, 매번 다시 뽑아 사용자마다 다른 조합을 만듭니다.</p></div>
  <button id="draw">새 조합 생성</button></div>
  <div id="games" class="games"></div>
  <div class="meta"><span id="status">샘플 데이터 로딩 중</span><span id="mode">사용자마다 확률적으로 다른 조합 생성</span></div>
  <div class="controls">
-   <label>최근 데이터 가중치 <b id="decayLabel">0.35</b><input id="decay" type="range" min="0" max="1" value=".35" step=".05"></label>
-   <label>Prior 강도 <b id="priorLabel">45</b><input id="prior" type="range" min="5" max="200" value="45" step="5"></label>
-   <label>탐색성 <b id="tempLabel">균형형</b><input id="temp" type="range" min="0" max="100" value="55" step="5"></label>
+   <label>최근 회차 반영 정도 <span class="help" tabindex="0" data-tip="최근 회차에 조금 더 비중을 둘지 정합니다. 0이면 모든 회차를 비슷하게 보고, 값이 커질수록 최근 데이터의 영향이 커집니다.">?</span> <b id="decayLabel">0.35</b><input id="decay" type="range" min="0" max="1" value=".35" step=".05"></label>
+   <label>초기 가정의 강도 <span class="help" tabindex="0" data-tip="Prior(사전분포)의 강도입니다. 값이 클수록 처음의 ‘1~45는 대체로 비슷하다’는 가정을 더 오래 유지해 작은 빈도 차이에 덜 흔들립니다.">?</span> <b id="priorLabel">45</b><input id="prior" type="range" min="5" max="200" value="45" step="5"></label>
+   <label>번호 다양성 <span class="help" tabindex="0" data-tip="낮으면 통계 점수가 높은 번호를 더 강하게 반영하고, 높으면 여러 번호가 선택될 여지를 넓힙니다. 전문적으로는 샘플링 분포의 탐색성을 조절합니다.">?</span> <b id="tempLabel">균형형</b><input id="temp" type="range" min="0" max="100" value="55" step="5"></label>
    <label>게임 수 <b id="gameLabel">5게임</b><input id="gameCount" type="range" min="1" max="5" value="5" step="1"></label>
  </div>
  <label class="check"><input id="diverse" type="checkbox" checked> 같은 사용자에게 생성되는 게임끼리 번호 중복을 줄이기</label>
@@ -42,8 +44,8 @@
 </section>
 
 <section class="grid">
- <article class="panel"><small>NUMBER ANALYSIS</small><h2>번호별 Posterior</h2><p class="sub">막대는 posterior mean의 상대적 크기입니다.</p><div id="ranking"></div></article>
- <article class="panel"><small>BACKTEST</small><h2>Walk-forward 검증</h2><div class="metric"><span>Bayesian 평균 적중</span><strong id="bayesHit">-</strong></div><div class="metric"><span>무작위 기대 적중</span><strong>0.800</strong></div><p class="sub">각 과거 시점까지의 데이터만 사용해 다음 회차의 상위 6개 점수를 검사합니다. 이 값은 1등 확률이 아닙니다.</p></article>
+ <article class="panel"><small>NUMBER ANALYSIS</small><h2>번호별 통계 점수 <span class="help" tabindex="0" data-tip="Posterior(사후분포) 평균을 보기 쉽게 상대 점수로 표시한 것입니다. 높다고 다음 회차에서 실제로 더 잘 나온다는 뜻은 아닙니다.">?</span></h2><p class="sub">과거 데이터를 반영한 상대적 분석 점수입니다. <b>전문용어: Posterior mean(사후분포 평균)</b></p><div id="ranking"></div></article>
+ <article class="panel"><small>PAST-DATA TEST</small><h2>과거 회차로 성능 확인 <span class="help" tabindex="0" data-tip="Walk-forward 검증: 그 시점까지 알 수 있었던 과거 데이터만 사용해 바로 다음 회차를 차례로 시험하는 방법입니다.">?</span></h2><div class="metric"><span>통계 모델 평균 일치 개수</span><strong id="bayesHit">-</strong></div><div class="metric"><span>무작위 기대 적중</span><strong>0.800</strong></div><p class="sub">각 과거 시점까지의 데이터만 사용해 다음 회차의 상위 6개 점수를 검사합니다. 이 값은 1등 확률이 아닙니다.</p></article>
 </section>
 
 <section class="panel">
@@ -56,7 +58,7 @@
 
 <section class="panel seo-copy">
  <small>LOTTO 6/45 GUIDE</small><h2>로또 번호 추천을 통계로 살펴보는 실험실</h2>
- <p>Bayes Lotto Lab은 단순히 자주 나온 번호 6개를 고정해서 보여주는 로또 번호 생성기가 아닙니다. 과거 당첨번호를 Bayesian 방식으로 요약한 뒤 posterior에서 확률적으로 샘플링하여 요청할 때마다 다른 조합을 만듭니다.</p>
+ <p>Bayes Lotto Lab은 단순히 자주 나온 번호 6개를 고정해서 보여주는 로또 번호 생성기가 아닙니다. 과거 당첨번호를 베이지안 방식으로 요약한 뒤 분석 결과에서 확률적으로 다시 뽑아 요청할 때마다 다른 조합을 만듭니다. 전문적으로는 이를 posterior sampling(사후분포 샘플링)이라고 합니다.</p>
  <p>공정하고 독립적인 로또 추첨이라면 모든 6개 조합의 실제 당첨확률은 동일합니다. 따라서 과거 로또 당첨번호 통계가 미래의 특정 조합을 더 유리하게 만든다고 주장하지 않습니다. 이 사이트의 목적은 <a href="bayes.html">베이지안 통계</a>, <a href="method.html">번호 생성 원리</a>, <a href="backtest.html">과거 데이터 백테스트</a>를 한곳에서 직접 살펴보는 것입니다.</p>
  <div class="topic-links"><a href="bayes.html">로또 번호 통계 이해하기 →</a><a href="why.html">왜 Bayesian인가요? →</a><a href="faq.html">로또 확률 FAQ →</a></div>
 </section>
